@@ -1,0 +1,281 @@
+
+Main File:
+
+FP.py
+
+This Python script is the main file to be run, like an exe, but this was made by a beginner so it’s a start! 
+This program gives a basic user interface, a list of the tools, and how to use the program. 
+This tool is able to call each of the other Python scripts used (Tools #1 - 9), and they are also able to call it. 
+Three of the nine program in this tool are located in a different directory and they are able to be called as well 
+call this file. You will notice that Tools 1, 3, and 4 will have the line ‘sys.path.insert(0, '<tool-name.py')’, 
+which is used to call the Python script in the other directory.
+
+This again is the main .py file that should be ran to call the other files. When usung the command ‘sudo python3 FP.py’ 
+the program will start, print a loading screen, welcome the user, a list of all available tools (#1 – 9), and directions 
+to navigate the tool with example. It then allows the user to input an integer to select a tool. In this case we tested 
+the quit function so I typed 0. It then prompts if they are sure and I typed n for no, which restarts the program. 
+I did the same thing again and then typed y for yes and it quits. If the input is invalid, it tells the user and makes 
+them try again until the input is valid. This program calls all tools in a continues stream EXCEPT for Tool #9 as it 
+will not stop on its own. 
+
+--------------------------------
+
+Tool #1 - PDF Metadata Collector
+
+PDFMetadata.py
+
+The first tool of this tool is a PDF Metadata Collector. It finds any metadata in the PDF (creation date, author, etc.) and 
+prints it to the user. This sub-tool can be used to gather data on a target, also known as reconnaissance. This is the 
+process of gathering data on a target you are planning to attack. This is the first step in the Cyber Attack Chain. 
+This tool is in a different folder then the main Python file, FP.py, and is called by the line ‘sys.path.insert(0, 'FinProj')’.
+
+--------------------------------
+
+Tool #2 - Raw HTML Webpage Grabber
+
+HTMLGrabber.py
+
+The second tool of my Python Program is an HTML Grabber. This uses Mechanize to brown the internet 
+anonymously and grabs the raw webpage. This is a series of links in a string format. 
+This is done also to preform reconnaissance on a target to gather domain names and find vulnerabilities.
+
+--------------------------------
+
+Tool #3 - Cookie Grabber
+
+Cookies-py/CCook.py
+Cookies-py/hideB.py
+
+The third tool on the list is a Cookie Grabber, which again uses Mechanize. This will gather 5 unique cookies from a webpage 
+if the webpage allows it. An example is when using twitter as a target too many times and an error occurs (bad request) the 
+program will just close. Other than that, this program seems to work perfectly. This tool is also used for reconnaissance. 
+The first Python file, CCook.py, is the main file that is called by FP.py but also calls the second file hideB.py. 
+The second Python script is what opens the mechanize browser, provides anonymity, changes the users proxy and user agent, 
+as well clears, and collects the cookies. This tool is in a different folder then the main Python file, FP.py, and is called by the 
+line ‘sys.path.insert(0, 'FinProj')’. CCook.py uses hideB.py, opens mechanize, goes to the user inputted page, and prints the output 
+to the user each time a cookie is collected after its cleared. 
+
+--------------------------------
+
+Tool #4 - HREF Link Parser
+
+ParsLink-py/ParL.py
+ParsLink-py/hideB2.py
+
+
+The fourth tool in my hacking tool is a Link Parser. This tool gathers the links found on a webpage that are ‘href’ links, collects 
+them, and prints them to the user using BeautifulSoup4. There is a Regex option, but this is not set up to work properly. 
+This tool is again a reconnaissance tool that is used to gather domain names from a target. The first file, ParL.py, is what is 
+called by FP.py and again vice versa. Again, this tool uses mechanize, but also uses hideB.py renamed as hideB2.py. 
+This is done to make my life a little easier when I was coding this. The second file has the same function as the original one hideB.py. 
+This tool is in a different folder then the main Python file, FP.py, and is called by the line ‘sys.path.insert(0, 'FinProj')’.
+
+--------------------------------
+
+Tool #5 - NMap Port Scanner
+
+nmapPortScan.py
+
+The fifth tool in my Python program is an Nmap Port Scanner. This tool uses Nmap to scan a targets network to find open ports that could 
+hold a vulnerability to attack. This tool again is a reconnaissance tool used to gather data, in this case, ports that are open. 
+The target for this tool was my Metasploitable2 Linux VM. 
+
+--------------------------------
+
+Tool #6 - Intrusion Detection System [IDS] Tricker
+
+idsTrick.py
+
+The sixth utility on my hacking tool is an Intrusion Detection System Tricker. This tool sends spoofed packets specifically designed to 
+confuse Network Analysists that may be over-seeing network activity. It sends packets with different data like ‘1234’, ‘LEMME MESS WITH YOU!’, etc. 
+This is more malicious than reconnaissance as it is actually attacking a target so, please be careful and respectful with this tool. 
+The target for this tool was Snort running on my Ubuntu 20.04 VM. 
+
+--------------------------------
+
+Tool #7 - TCP Sequence Calculator
+
+TCPCalc.py
+
+The seventh tool is a TCP Packet Calculator. This targets TCP’s three-way handshake ACK. It calculates the distance between successful communication between 
+the TCP and ACK packets. It does this by calculating the difference between the two sequence numbers and gives the user the next upcoming sequence number. 
+This could be used as a reconnaissance tool to see if the port is secure, like a ping test. 
+
+--------------------------------
+
+Tool #8 - SYN Packet Flooder
+
+SYNFlood.py
+
+The eighth tool is a SYN Packet Flooder. This targets TCP’s three-way handshake, and floods it with packets. This is a Denial-of-Service Attack (DDoS), 
+which is malicious so this is a tool that can actually be used to attack a target. Again, please be careful and respectful with this tool! 
+The target for this tool was again the Metasploitable 2 VM.
+
+--------------------------------
+
+Tool #9 - TTL Packet Parser ***USE 'CTL + C' TO END SCRIPT & SCRIPT IS VERY BUGGY***
+
+ParseTTL.py
+
+The ninth tool in my hacking tool (for now) is a TTL Packet Parser. This tool is very buggy and will not stop unless the user uses 
+the keyboard shortcut ‘Ctrl’ + ‘z’. I have tried to make it have a stop function, but this does not work, both the count and time methods failed. 
+As well, this program froze my VM many times, so be careful when testing this tool! This tool gathers packets picked up while browsing the 
+internet on your PC. If the packet is spoofed it is also printed. This is a reconnaissance tool as it can be used to gather and monitor packet 
+flow on a targets internet.
+
+***YOU MUST BE CONNECTED TO THE TARGETS NETWORK FOR THIS TO WORK***
+
+--------------------------------
+
+Tool #10 - Anonymous FTP Scanner
+
+FTPScan.py
+
+The Anonymous FTP Scanner sub-tool determines if a target network allows for anonymous FTP login access. It takes the hostname given and displays 
+a Boolean if the login was successful or not to the user. Using the module ftplib, we can create a function that attempts to make an FTP connection 
+using anonymous usernames and passwords. Please keep in mind that data collected by this tool is used to continue to the next sub-tool. 
+This is more of a reconnaissance stage sub-tool; however, it may be used in the scanning stage. The target used in testing for this tool was the Metasploitable 2 VM.
+
+--------------------------------
+
+Tool #11 - Brute Force FTP Credentials
+
+FTPBF.py
+
+The Brute Force FTP Credentials sub-tool could be used for malicious reasons, resulting in the compromise of an organization. 
+Again, using the module ftplib, a function was created that would take a user inputted host IP Address, a password file, and display the usernames 
+and passwords that are successful in giving access to the host and ones that are not. The password file is read line by line, and the username and password 
+are separated by using a colon ‘:’. For this hacking tool, the password file is a flat text file. It takes the user’s input data to attempt credentials 
+to the target’s server. Again, please keep in mind that data collected by this tool is used to continue to the next sub-tool.
+
+--------------------------------
+
+Tool #12 - FTP Server Webpage Search ***DID NOT WORK IN TESTING***
+
+FTPWP.py
+
+Once more, the FTP Server Webpage Search is more of a reconnaissance stage sub-tool; however, it may be used in the scanning or gaining/maintaining access stages. 
+This sub-tool uses the successful username and password found in the last sub-tool to test if a target FTP server allows anonymous web access. 
+To try this, the sub-tool will login using the stolen credentials, list the data held within the FTP server’s directories, search the data, and collect default web pages. 
+We created a function that uses a user’s input to look at an FTP connection. It then displays a list of the default web pages that it could locate. 
+
+--------------------------------
+
+Tool #13 - Sending & Fuzzing Packets
+
+t13SFP.py
+
+Sending Packets
+
+Using the send() function allows the user to “send packets at layer 3” (Scapy, 2022). It will also “handle routing and layer 2” (Scapy, 2022). Using the sendp() function also works at layer 2 however it’s up to the user to select the correct interface and layer protocol (Scapy, 2022). “send() and sendp() will also return sent packet list if return_packets=True is passed as parameter” (Scapy, 2022). 
+
+Fuzzing Packets
+
+Using the fuzz() function allows the user the ability “to change any default value that is not to be calculated by an object whose value is random and whose type is adapted to the field” (Scapy, 2022). This works by enabling quick “building fuzzing templates and sending them in a loop” (Scapy, 2022). 
+
+--------------------------------
+
+Tool #14 - Sending & Reciving Packets
+
+t14SRP.py
+
+Now we can try to send and receive packets using Scapy. Using the sr() function allows the user to send packets as well receive the answers (Scapy, 2022). This “The function returns a couple of packet and answers, and the unanswered packets” (Scapy, 2022). Using the sr1(), a version of sr(), which “only returns one packet that answered the packet (or the packet set) sent” as well these “packets must be layer 3 packets” (Scapy, 2022). Using the srp() function does this same thing except “for layer 2 packets (Ethernet, 802.3, etc.). If there is no response, a None-value will be assigned instead when the timeout is reached” (Scapy, 2022).
+
+Send and Receive functions are the main part of Scapy, and they “return a couple of two lists. The first element is a list of couples (packet sent, answer), and the second element is the list of unanswered packets" (Scapy, 2022).
+
+When a “limited rate of answers” is returned, the user “can specify a time interval (in seconds) to wait between two packets with the inter parameter” (Scapy, 2022). Some packets may be lost if the interval is not enough , however users “can resend all the unanswered packets, either by calling the function again, directly with the unanswered list, or by specifying a retry parameter” (Scapy, 2022). As well, “he timeout parameter specify the time to wait after the last packet has been sent” (Scapy, 2022).
+
+--------------------------------
+
+Tool #15 - Byte Injector & SYN Scan
+
+t15BSYNS.py
+
+Byte Injector
+
+Each packets have fields have a specific type (Scapy, 2022). An example is that “the length field of the IP packet ‘len’ expects an integer. More on that later. If you’re developing a PoC, there are times where you’ll want to inject some value that doesn’t fit that type. This is possible using RawVal” (Scapy, 2022). 
+
+SYN Scan
+
+The classic Scapy “SYN Scan can be initialized by executing” and “will send a single SYN packet to” the specified target on “port 80 and will quit after receiving a single response” (Scapy, 2022). The output from this shows if the target “returned “RA” flag indicating an open port” (Scapy, 2022). This will also scan “ports 400 through 443 on the system” (Scapy, 2022). We can view “responses simply request a summary of collected packets" (Scapy, 2022). This can be done by using the commands listed below, as well can be found in t15BSYNS.py. 
+
+Scapy has the cabability "to export recorded packets in various hex formats" (Scapy, 2022). To do this, using the "hexdump()" command "to display one or more packets using classic hexdump format" (Scapy, 2022). As well, Scapy allows users to "convert entire packet into a binary string using the raw() function" (Scapy, 2022). Finally, Scapy allows the user to "export a base64 encoded Python data structure representing a packet" and does this using "the export_object() function" (Scapy, 2022).
+
+p1 = sr1(IP(dst=usrIP)/TCP(dport=80,flags="S"))
+-	ss = p1.show(dump=True)
+-	print(ss)
+-	print(hexdump(p1))
+-	pkt_raw = raw(p1)
+-	print(pkt_raw)
+-	print(export_object(p1))
+
+ans, unans = sr(IP(dst=usrIP)/TCP(sport=666,dport=(440,443),flags="S"))
+-	print(ans, unans)
+-	print(ans.summary())
+
+This can be shown as “stimulus/response pairs for answered probes” and “can display only the information we are interested in by using a simple loop” (Scapy, 2022). Users can even build a table “using the make_table() function to display information about multiple targets” (Scapy, 2022). When preforming large scans, we can choose to only display “certain responses” to make it easier to read (Scapy, 2022). There is also an option to perform an analysis on the responses, like indicating “which ports are open" (Scapy, 2022). If these methods don’t work or are “not enough, Scapy includes a report_ports() function which not only automates the SYN scan, but also produces a LaTeX output with collected results” (Scapy, 2022).
+
+--------------------------------
+
+Tool #16 - Protocol Scanner & Pinger
+
+t16PSP.py
+
+This sub-tool preforms the simple one-liners on the Scapy Usage Docs. Users can use Scapy to craft packets and quickly "replicate classic TCP Scans" (Scapy, 2022). This sub-tool preforms the ACK Scan, Xmas Scan, ARP Ping, ICMP Ping, TCP Ping, UDP Ping, and a TCP Port Scanning (Scapy, 2022). These all return if the host and the port is alive. 
+
+--------------------------------
+
+Tool #17 - Classical Attacks
+
+t17CA.py
+
+This sub-tool prefoms a few of the classical attacks from the Scapy Usage Docs. It sends malformed packets, preforms the ping of death, three Nestwa attacks, land attack which is designed for Microsoft Windows, and lastly the ICMP leaking attack which was a "Linux 2.0 bug" (Scapy, 2022). 
+
+--------------------------------
+
+Tool #18 - Packet Sniffers
+
+t18PS.py
+
+This sub-tool uses Scapy to capture packets from a target network. This tool only specifies 8-15 packets for each of the 4 sniffing commands, however, this is done so that the script stops. As well, only "one interface or a list of interfaces to sniff on can be provided" in the command (Scapy, 2022). "If no interface is given, sniffing will happen on conf.iface" (Scapy, 2022). For more control on what is displayed to the user, "the sprintf() function" can be used (Scapy, 2022).
+
+--------------------------------
+
+THANK YOU FOR USING MY HACKING TOOL!! 
+
+BE RESPONSIBLE AND SAFE!! HACK WISELY!!
+
+
+  ██████ ▄▄▄█████▓ ▄▄▄     ▓██   ██▓    █     █░ ██▓  ██████ ▓█████ 
+▒██    ▒ ▓  ██▒ ▓▒▒████▄    ▒██  ██▒   ▓█░ █ ░█░▓██▒▒██    ▒ ▓█   ▀ 
+░ ▓██▄   ▒ ▓██░ ▒░▒██  ▀█▄   ▒██ ██░   ▒█░ █ ░█ ▒██▒░ ▓██▄   ▒███   
+  ▒   ██▒░ ▓██▓ ░ ░██▄▄▄▄██  ░ ▐██▓░   ░█░ █ ░█ ░██░  ▒   ██▒▒▓█  ▄ 
+▒██████▒▒  ▒██▒ ░  ▓█   ▓██▒ ░ ██▒▓░   ░░██▒██▓ ░██░▒██████▒▒░▒████▒
+▒ ▒▓▒ ▒ ░  ▒ ░░    ▒▒   ▓▒█░  ██▒▒▒    ░ ▓░▒ ▒  ░▓  ▒ ▒▓▒ ▒ ░░░ ▒░ ░
+░ ░▒  ░ ░    ░      ▒   ▒▒ ░▓██ ░▒░      ▒ ░ ░   ▒ ░░ ░▒  ░ ░ ░ ░  ░
+░  ░  ░    ░        ░   ▒   ▒ ▒ ░░       ░   ░   ▒ ░░  ░  ░     ░   
+      ░                 ░  ░░ ░            ░     ░        ░     ░  ░
+                            ░ ░                                     
+
+--------------------------------
+
+References - 
+
+O'Connor, T. (2012). Violent Python: A cookbook for hackers, forensic analysts, penetration testers, and security engineers. 
+BryteWave. Elsevier Science.
+
+CORE, . (2022). Using the core gui. core. Retrieved March 20, 2022, from https://coreemu.github.io/core/gui.html & http://coreemu.github.io/core/install.html & https://github.com/coreemu/core 
+
+Scapy, . (2022). Welcome to Scapy's documentation! Welcome to Scapy's documentation! - Scapy 2.4.5. documentation. Retrieved April 10, 2022, from https://scapy.readthedocs.io/en/latest/ & https://scapy.readthedocs.io/en/latest/usage.html & https://scapy.readthedocs.io/en/latest/installation.html#installing-scapy-v2-x
+
+Rapid7, M. 2. (2022). Metasploitable 2 exploitability guide. Metasploitable 2 Exploitability Guide | Metasploit Documentation. Retrieved February 10, 2022, from https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide
+
+--------------------------------
+
+
+
+
+
+
+
+
