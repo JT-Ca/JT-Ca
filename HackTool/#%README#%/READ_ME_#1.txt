@@ -1,12 +1,12 @@
 
-JT's 'Hacking' Tools
+JT's 'Hacking' Tool
 
 Creator
 JT
 
-Final Project for College Class
+HackTool
 
-This Tool set has a total of 12 different tools and will have future updates with more tools 
+This Tool set has a total of 18 different sub-tools and will have future updates with more tools 
 being added, bug fixes, etc. 
 This is my FIRST ever hacking tool I have created so it’s not capable of much for now.
 
@@ -21,14 +21,20 @@ security.
 Prerequisites:
 
 For my tool to run without many errors or bugs, it is recommended that a few things are installed on to your PC. You will need 
-VMWare Workstation version 16.x or higher. Then you will need to download an Ubuntu 20.04 VM and a Metasplotable2 Linux VM. 
+VMWare Workstation version 16.x or higher. Then you will need to download an Ubuntu 20.04 VM (or latest), a Metasplotable2 Linux VM. 
 The Ubuntu VM will be the main one being used while the Metasploitable2 VM will be used as a target.
 
 VMWare: https://www.vmware.com/
 Ubuntu: https://ubuntu.com/download/desktop
 Metasploitable: https://sourceforge.net/projects/metasploitable/files/Metasploitable2/
+
+Within the Ubuntu VM, it is also required to install CORE, the Common Open Research Emulator & all its dependencies,
+as well Scapy & all its dependencies.
+
 CORE & all dependancies: https://coreemu.github.io/core/
 Scapy & all dependancies: https://scapy.readthedocs.io/en/latest/
+
+It is HIGHLY recommended to install dependecies by the source code and using pip, apt, apt-get, etc. or you may have problems running this tool.
 
 As well, this whole tool was coded using Python 3 so you must download all needed Python Modules and all their Dependencies!!
 
@@ -38,13 +44,14 @@ Python 3: https://www.python.org/downloads/
 
 Dependencies for Ubuntu VM:
 In order for my hacking tool to really work on the Ubuntu VM, there are many dependencies needed to be installed. These are as follows:
--	Python 3.10.0
--	pip
--	Snort & all its dependencies 
--	Nmap & all its dependencies
--	Mechanize & all its dependencies
--	Scapy & all its dependencies
--	Common Open Research Emulator & all its dependencies
+-	Python 3.+
+-	pip (latest)
+-	pip2 (latest)
+-	Snort & all its dependencies (latest)
+-	Nmap & all its dependencies (latest)
+-	Mechanize & all its dependencies (latest)
+-	Scapy & all its dependencies (latest)
+-	Common Open Research Emulator (CORE) & all its dependencies (latest)
 
 Needed Python 3 Modules:
 -	sys
